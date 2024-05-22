@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>update</title>
+	</head>
+	<body>
+		<form action="/sutartys/update/{{.ID}}" method="POST" id="update" enctype="multipart/form-data">
+			<p>id: {{.ID}}</p>
+			<div>
+			<label for="file">Sutartis: </label>
+			<input type="file" id="file" name="file"/>
+			</div>
+			<div>
+			<label for="kaina">Kaina: </label>
+			<input type="number" min="0" step="0.01" id="kaina" required="required" name="kaina" value="{{.Kaina}}"/>
+			</div>
+			<button type="submit" form="update">Atnaujinti</button>
+		</form>
+	</body>
+</html>

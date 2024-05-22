@@ -17,3 +17,21 @@ CREATE TABLE leidimas (
 	fk_brezinys_id INT NOT NULL,
 	FOREIGN KEY (fk_brezinys_id) REFERENCES brezinys (id)
 );
+
+CREATE TABLE sutartis_id_seq (
+	last_value SMALLINT,
+	log_cnt INT,
+	is_called bool
+);
+
+CREATE TABLE brezinys_id_seq (
+	last_value INT,
+	log_cnt INT,
+	is_called bool
+);
+
+CREATE TABLE leidimas_id_seq (
+	last_value BIGINT,
+	log_cnt INT,
+	is_called bool
+);

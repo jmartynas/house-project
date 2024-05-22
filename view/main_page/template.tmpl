@@ -1,0 +1,79 @@
+{{block "leidimai" .}}
+<button type="submit" id="leidimai_get_create">Sukurti</button>
+<script type="text/javascript">
+    document.getElementById("leidimai_get_create").onclick = function () {
+        location.href = "http://localhost:8080/leidimai/create";
+    };
+</script>
+<tr>
+	<th>ID</th>
+	<th>Leidimas</th>
+	<th>Brezinys</th>
+	<th></th>
+	<th></th>
+</tr>
+{{range .Leidimai}}
+<form action="/leidimai/delete/{{.ID}}" method="POST" id="leidimai_post_{{.ID}}"></form>
+<form action="/leidimai/update/{{.ID}}" method="GET" id="leidimai_get_update_{{.ID}}"></form>
+<tr>
+	<td>{{.ID}}</td>
+	<td>{{.Leidimas}}</td>
+	<td>{{.FkBrezinysID}}</td>
+	<td><button type="submit" form="leidimai_get_update_{{.ID}}">Redaguoti</button></td>
+	<td><button type="submit" form="leidimai_post_{{.ID}}">Trinti</button></td>
+</tr>
+{{end}} {{end}}
+
+{{block "breziniai" .}}
+<button type="submit" id="breziniai_get_create">Sukurti</button>
+<script type="text/javascript"> document.getElementById("breziniai_get_create").onclick = function () {
+        location.href = "http://localhost:8080/breziniai/create";
+    };
+</script>
+<tr>
+	<th>ID</th>
+	<th>Brezinys</th>
+	<th>Sutartis</th>
+	<th></th>
+	<th></th>
+</tr>
+{{range .Breziniai}}
+<form action="/breziniai/delete/{{.ID}}" method="POST" id="breziniai_post_{{.ID}}"></form>
+<form action="/breziniai/update/{{.ID}}" method="GET" id="breziniai_get_update_{{.ID}}"></form>
+<tr>
+	<td>{{.ID}}</td>
+	<td>{{.Brezinys}}</td>
+	<td>{{.FkSutartisID}}</td>
+	<td><button type="submit" form="breziniai_get_update_{{.ID}}">Redaguoti</button></td>
+	<td><button type="submit" form="breziniai_post_{{.ID}}">Trinti</button></td>
+</tr>
+{{end}}
+{{end}}
+
+{{block "sutartys" .}}
+<button type="submit" id="sutartys_get_create">Sukurti</button>
+<script type="text/javascript">
+    document.getElementById("sutartys_get_create").onclick = function () {
+        location.href = "http://localhost:8080/sutartys/create";
+    };
+</script>
+<tr>
+	<th>ID</th>
+	<th>Sutartis</th>
+	<th>Kaina</th>
+	<th></th>
+	<th></th>
+</tr>
+{{range .Sutartys}}
+<form action="/sutartys/delete/{{.ID}}" method="POST" id="sutartys_post_{{.ID}}"></form>
+<form action="/sutartys/update/{{.ID}}" method="GET" id="sutartys_get_update{{.ID}}"></form>
+<tr>
+	<td>{{.ID}}</td>
+	<td>{{.Sutartis}}</td>
+	<td>{{.Kaina}}</td>
+	<td><button type="submit" form="sutartys_get_update_{{.ID}}">Redaguoti</button></td>
+	<td><button type="submit" form="sutartys_post_{{.ID}}">Trinti</button></td>
+</tr>
+{{end}}
+{{end}}
+

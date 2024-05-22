@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>update</title>
+	</head>
+	<body>
+		<form action="/leidimai/update/{{.ID}}" method="POST" id="update" enctype="multipart/form-data">
+			<p>id: {{.ID}}</p>
+			<div>
+			<label for="file">Leidimas: </label>
+			<input type="file" id="file" name="file"/>
+			</div>
+			<div>
+			<label for="breziniai">Brezinys: </label>
+			<select name="breziniai" id="breziniai" form="update">
+				{{range .Brezinys}}
+				<option value="{{.Brezinys.ID}}" {{if .Selected}}selected{{end}}>{{.Brezinys.ID}} {{.Brezinys.Brezinys}} {{.Brezinys.FkSutartisID}}</option>
+				{{end}}
+			</select>
+			</div>
+			<button type="submit" form="update">Atnaujinti</button>
+		</form>
+	</body>
+</html>

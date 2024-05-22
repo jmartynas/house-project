@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Login</title>
+	</head>
+	<body>
+		{{if .}}
+			<p>This user does not exist</p>
+		{{end}}
+		<form method="POST" action="/post-login">
+			<label for="user">Naudotojas</label>
+			<input name="user" type="text" id="user">
+			<input type="submit" value="Login">
+		</form>
+	</body>
+</html>

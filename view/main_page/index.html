@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<table>
+			{{if .Sutartys}} {{template "sutartys" .}}
+			{{else}} {{if .Breziniai}} {{template "breziniai" .}}
+				{{else}} {{if .Leidimai}} {{template "leidimai" .}}
+					{{else}} <p>NO PERMISSIONS</p>
+			{{end}} {{end}} {{end}}
+
+		</table>
+	</body>
+</html>
+
